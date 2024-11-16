@@ -41,7 +41,7 @@ This repository contains tools and examples for enabling communication between S
      - Port `8080` for TurboWarp clients via WebSocket.
 
 2. **Connect Clients**:
-   - **Scratch 1.4**: Use the Mesh feature and connect to the server IP (e.g., `localhost:42001`).
+   - **Scratch 1.4**: Use the Mesh feature and connect to the server IP (e.g., `localhost`).
    - **TurboWarp**: Use the provided extension to connect via the block `Connect to Mesh server [IP]`.
 
 3. **IP Address**:

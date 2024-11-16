@@ -79,7 +79,7 @@ This project allows both Scratch 1.4 and TurboWarp clients to share broadcasts a
 - **Variables:** Access other clients' variables using the `(sensor value [ v])` block. Only the latest value from all clients is visible.
 
 ### In TurboWarp:
-- The same functionality is implemented using custom blocks (as the default blocks cannot be overridden).
+- The same functionality is implemented using custom blocks because I couldn’t find a way to override the default blocks.
 
 ---
 

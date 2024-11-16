@@ -46,7 +46,7 @@ This repository contains tools and examples for enabling communication between S
 
 3. **IP Address**:
    - For local setups, use `localhost`.
-   - For networked setups, find the server's IP address in the terminal output.
+   - For networked setups, find the server's local IP address in the terminal output.
 
 ---
 
@@ -68,7 +68,7 @@ This repository contains tools and examples for enabling communication between S
 1. **TurboWarp Chat**: A project showcasing how TurboWarp clients can chat using Mesh.
 2. **Scratch 1.4 Chat**: A similar project for Scratch 1.4 clients.
 
-Both projects rely on the server to facilitate communication. Start the server before testing.
+The turbowarp project relies on the server to facilitate communication. Start the server before testing. If on the same server, both projects are compatible and can comunicate together.
 
 ---
 

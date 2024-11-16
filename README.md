@@ -1,108 +1,104 @@
-# TurboWarp ↔ Scratch 1.4 Mesh Bridge
+# TurboWarp-Scratch Mesh Bridge
 
-This repository enables communication between **TurboWarp** and **Scratch 1.4** using the Mesh feature. It includes:
-
-- **A server (bridgeServer):** Required for facilitating communication between Scratch 1.4 and TurboWarp clients.
-- **Example chat projects:**
-  - A local chat project for TurboWarp.
-  - A local chat project for Scratch 1.4.
-
-This project allows both Scratch 1.4 and TurboWarp clients to share broadcasts and variables in a seamless, albeit sometimes glitchy, manner.
-
----
+This repository contains tools and examples for enabling communication between Scratch 1.4's Mesh network and TurboWarp using a custom server (`bridgeServer.js`) and a TurboWarp extension (`turbowarpMesh.js`). The bridge allows Scratch 1.4 and TurboWarp clients to communicate seamlessly, including sharing broadcasts and variables.
 
 ## Features
 
-- **Mesh support for TurboWarp and Scratch 1.4.**  
-  TurboWarp and Scratch 1.4 clients can communicate in real-time via broadcasts and shared variables.
-
-- **Multiple client compatibility.**  
-  Both TurboWarp and Scratch 1.4 clients can connect simultaneously.
-
-- **Custom TurboWarp extension.**  
-  Designed to interact with the Mesh protocol, providing new blocks for broadcasting and variable syncing.
+- **Bridge Server**: Acts as the central communication hub for both Scratch 1.4 and TurboWarp clients.
+- **TurboWarp Extension**: Provides custom blocks to handle Mesh communication.
+- **Cross-Compatibility**: Scratch 1.4 and TurboWarp clients can share variables and broadcasts.
+- **Examples**: Includes example projects for both Scratch 1.4 and TurboWarp demonstrating local chat functionality.
 
 ---
 
-## Prerequisites
+## Getting Started
 
-1. **Scratch 1.4**  
-   - Download Scratch 1.4 from the official Scratch website.  
-   - Enable Mesh networking (guides are available online).  
+### Prerequisites
 
-2. **TurboWarp**  
-   - Download TurboWarp.  
-   - Import the custom extension provided in this repository.  
-   - Run TurboWarp in **unsandboxed mode**.
+1. **Scratch 1.4**
+   - Download from the official Scratch website.
+   - Enable Mesh networking. (Refer to online guides for assistance.)
 
-3. **Node.js**  
-   - Required to host the bridge server.
+2. **TurboWarp**
+   - Install TurboWarp Desktop.
+   - Import the provided extension (`turbowarpMesh.js`).
+   - Run TurboWarp in *unsandboxed* mode for full functionality.
 
-4. **Network Setup**  
-   - If running on the same PC, use `localhost` as the IP address.  
-   - For other devices, use the IP displayed in the server terminal.
+3. **Node.js**
+   - Install Node.js to host the `bridgeServer.js`.
 
 ---
 
-## Installation
+### Setup
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/ZeWeshman/turbowarp-mesh.git
-   cd turbowarp-mesh
-   ```
+1. **Start the Server**:
+   - Run the `bridgeServer.js` using Node.js:
+     ```bash
+     node bridgeServer.js
+     ```
+   - The server listens on:
+     - Port `42001` for Scratch 1.4 clients.
+     - Port `8080` for TurboWarp clients via WebSocket.
 
-2. Install the required dependencies for the server:  
-   ```bash
-   npm install
-   ```
+2. **Connect Clients**:
+   - **Scratch 1.4**: Use the Mesh feature and connect to the server IP (e.g., `localhost:42001`).
+   - **TurboWarp**: Use the provided extension to connect via the block `Connect to Mesh server [IP]`.
 
-3. Start the server:  
-   ```bash
-   node bridgeServer.js
-   ```
-
-4. Open the example projects:  
-   - Import the **TurboWarp chat project** into TurboWarp.  
-   - Open the **Scratch 1.4 chat project** in Scratch 1.4.  
-
-5. Connect the clients:  
-   - For Scratch 1.4, enter the server IP in the Mesh connection settings.  
-   - For TurboWarp, the connection is handled by the custom extension.
+3. **IP Address**:
+   - For local setups, use `localhost`.
+   - For networked setups, find the server's IP address in the terminal output.
 
 ---
 
-## How Mesh Works
+### How Mesh Works
 
-### In Scratch 1.4:
-- **Broadcasts:** Shared between all connected clients. If a broadcast doesn't appear, send it from another client.  
-- **Variables:** Access other clients' variables using the `(sensor value [ v])` block. Only the latest value from all clients is visible.
+- **Broadcasts**:
+  - Scratch 1.4: Use broadcasts, which are shared across all clients.
+  - TurboWarp: Custom blocks handle broadcasting (`Send Mesh broadcast [message]`) and receiving (`when I receive Mesh broadcast [broadcast]`).
 
-### In TurboWarp:
-- The same functionality is implemented using custom blocks because I couldn’t find a way to override the default blocks.
-
----
-
-## Known Issues
-
-- Occasional glitches with variable syncing between multiple clients.  
-- Requires TurboWarp to run unsandboxed.  
+- **Variables**:
+  - Scratch 1.4: Access other clients' variables using the `(sensor value [variable])` block.
+  - TurboWarp: Custom blocks allow getting and setting variables (`Set Mesh variable [variable] to [value]`).
 
 ---
 
-## Contributing
+## Example Projects
 
-If you have ideas or improvements for the server or extension code, feel free to open a pull request or submit an issue. Community contributions are welcome!
+### Included Examples
+1. **TurboWarp Chat**: A project showcasing how TurboWarp clients can chat using Mesh.
+2. **Scratch 1.4 Chat**: A similar project for Scratch 1.4 clients.
+
+Both projects rely on the server to facilitate communication. Start the server before testing.
+
+---
+
+## Contribution
+
+If you encounter bugs or have ideas for improving the server or extension, feel free to open an issue or submit a pull request. Contributions to enhance compatibility, performance, or features are welcome.
+
+---
+
+## Troubleshooting
+
+1. **Broadcasts Not Appearing**:
+   - Ensure a broadcast is sent from one client to make it visible to others.
+
+2. **Connection Issues**:
+   - Verify that the server is running.
+   - Check your firewall settings.
+
+3. **Sandbox Errors in TurboWarp**:
+   - Ensure you are running TurboWarp in unsandboxed mode.
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is open-source. Feel free to use and modify the code for your projects. Attribution is appreciated but not required.
 
 ---
 
-## Related
+## Links
 
-- [Scratch 1.4 Official Website](https://scratch.mit.edu/download/scratch1_4/)  
-- [TurboWarp](https://turbowarp.org/)  
+- GitHub: [TurboWarp-Scratch Mesh Bridge](https://github.com/ZeWeshman/turbowarp-mesh)
+- Scratch 1.4 Download: [Scratch Official Website](https://scratch.mit.edu/download/scratch1_4)

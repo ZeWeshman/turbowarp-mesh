@@ -22,7 +22,7 @@ This repository contains tools and examples for enabling communication between S
 2. **TurboWarp**
    - Install TurboWarp Desktop.
    - Import the provided extension (`turbowarpMesh.js`).
-   - Run TurboWarp in *unsandboxed* mode for full functionality.
+   - Run the TurboWarp extention in *unsandboxed* mode for full functionality.
 
 3. **Node.js**
    - Install Node.js to host the `bridgeServer.js`.
